@@ -42,11 +42,23 @@ BACKUPFOLDER=$VOLUME/Backup/$VERSION/$FAZIT/$TOPIC/
 echo Mounting app folder.
 mount -uw /mnt/app
 
-echo Making backup folders on SD-card.
-mkdir -p $BACKUPFOLDER
+if [[ -d "$BACKUPFOLDER" ]]
+then
+    echo "$BACKUPFOLDER exists already, no backup needed."
+else 
+    echo "Making backup folders on SD-card."
+    mkdir -p $BACKUPFOLDER
 
-echo Copying file to backup folder on SD-card.
-cp /eso/hmi/lsd/jars/GEM.jar $BACKUPFOLDER
+    echo "Copying file to backup folder on SD-card."
+    cp /eso/hmi/lsd/jars/GEM.jar $BACKUPFOLDER
+    echo "Backup saved at $BACKUPFOLDER"
+    
+fi
+
+
+
+
+
 
 echo Copying modified files from SD folder to MIB.
 cp /$VOLUME/Advanced/$TOPIC/GEM.jar /eso/hmi/lsd/jars/GEM.jar

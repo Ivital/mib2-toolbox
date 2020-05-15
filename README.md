@@ -1,4 +1,4 @@
-# MIB2 High toolbox
+# MIB High toolbox
 The ultimate MIB-HIGH toolbox for all your MIB1 High and MIB2 High customization needs.
 
 Note: this screen has to potential to ruin your infotainment unit. The developers are not responsible for any troubles to anyone or anything caused by this toolbox.
