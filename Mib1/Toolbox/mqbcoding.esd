@@ -2,7 +2,7 @@
 #
 # Custom Green Engineering Menu screen
 # Author:       Jille
-# Version:      0.3A
+# Version:      0.4A
 # Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
 #
 ####################################################################
@@ -10,7 +10,7 @@ screen   MQBCoding Main
 
 keyValue
     value    String sys 0x00000000 0
-    label    "[MQB CODING - MIB1 Toolbox v0.3A]"
+    label    "[MQB CODING - MIB1 Toolbox v0.4A]"
     poll     0
     
 keyValue
@@ -21,7 +21,15 @@ keyValue
 keyValue
     value    String sys 0x00000000 0
     label    "Be careful and have fun."
-    poll     0    
+    poll     0
+
+keyValue
+    value    String sys 0x00000000 0
+    label    ""
+    poll     0
+script
+   value    sys 1 0x0100 "/scripts/update_toolbox.sh"
+   label    "Update toolbox with a new mqbcoding.esd and scripts"    
 
 
 ####################################################################
@@ -60,11 +68,11 @@ keyValue
 #script
 #   value    sys 1 0x0100 "/scripts/install_skin0.sh"
 #   label    "Install new graphics for Skin0 from /Skinfiles/Skin0/ on SD"
-#
-#script
-#   value    sys 1 0x0100 "/scripts/install_skin1.sh"
-#   label    "Install new graphics for Skin1 from /Skinfiles/Skin1/ on SD"
-#   
+
+script
+   value    sys 1 0x0100 "/scripts/install_skin1.sh"
+   label    "Install new graphics for Skin1 from /Skinfiles/Skin1/ on SD"
+   
 #script
 #   value    sys 1 0x0100 "/scripts/install_skin1_ambient.sh"
 #   label    "Install new ambient colors for Skin1 from /Skinfiles/Skin1/ on SD"
