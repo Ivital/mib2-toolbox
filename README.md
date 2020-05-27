@@ -58,6 +58,13 @@ cp /net/mmx/fs/sda0/Mib1/toolbox/Scripts/*.* /net/mmx/mnt/app/eso/hmi/engdefs/sc
 - in case of MIB2: 
 ```cp /net/mmx/fs/sda0/Mib2/PersonalPOI/PayLoad/0/default/payload.sh /net/mmx/mnt/app/eso/hmi/engdefs/mqbcoding.esd```
 
+- Your unit needs to be set in developer-mode. This can be done through adaptation of module 5F in VCDS/VCP/OBD11. Or you could run the following commands on console to try to enable dev-mode.
+```
+export LD_LIBRARY_PATH=/net/mmx/mnt/app/root/lib-target:/net/mmx/mnt/eso/lib:/net/mmx/eso/lib:/net/mmx/mnt/app/usr/lib:/net/mmx/mnt/app/armle/lib:/net/mmx/mnt/app/armle/lib/dll:/net/mmx/mnt/app/armle/usr/lib
+export IPL_CONFIG_DIR=/etc/eso/production
+on -f mmx  /net/mmx/eso/bin/dumb_persistence_writer -P 0 3221356557 01
+```
+Note: results may very, some firmwares/brands/units have different paths, but the persistence address and value will be the same. Reboot after setting the value succesfully.
 
 - Hold the MENU button, and go to TESTMODE. On older versions you can go to the developer menu by holding the MENU button for about 10 seconds.
 - Go to the Green Developer Menu
