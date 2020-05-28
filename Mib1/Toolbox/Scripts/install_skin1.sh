@@ -7,7 +7,7 @@ TOPIC=Skinfiles
 SDPATH=/Custom/Skinfiles/$SKINNAME/images.mif
 MIBPATH=/net/mmx/mnt/app/eso/hmi/lsd/Resources/$SKINNAME/images.mif
 
-./copy_file.sh "$DESCRIPTION" "$TOPIC" "$SDPATH" "$MIBPATH"
+./copy_file.sh "$DESCRIPTION" "$TOPIC" "$MIBPATH" "$SDPATH" 
 
 echo "Done"
 exit 0

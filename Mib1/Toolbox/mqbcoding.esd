@@ -15,13 +15,18 @@ keyValue
     
 keyValue
     value    String sys 0x00000000 0
-    label    "Warning: this screen has the potential to break your unit and void your warranty. "
+    label    "Warning: this screen has the potential to break your unit. "
     poll     0
     
 keyValue
     value    String sys 0x00000000 0
+    label    "and void your warranty. "
+    poll     0    
+
+keyValue
+    value    String sys 0x00000000 0
     label    "Be careful and have fun."
-    poll     0
+    poll     0    
 
 keyValue
     value    String sys 0x00000000 0

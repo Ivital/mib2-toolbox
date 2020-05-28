@@ -72,7 +72,7 @@ sleep .1
 echo ""
 echo "Copying modified files from SD folder to MIB."
 echo "This can take some time. Please wait."
-cp "$SDPATH" "$MIBPATH"
+cp "$VOLUME/$SDPATH" "$MIBPATH"
 
 sleep .1
 
