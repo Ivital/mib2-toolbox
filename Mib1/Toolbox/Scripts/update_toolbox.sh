@@ -6,7 +6,7 @@ SDPATH=/Mib1/Toolbox/mqbcoding.esd
 MIBPATH=/net/mmx/net/mmx/mnt/app/eso/hmi/engdefs/mqbcoding.esd
 
 
-./copy_file.sh "$DESCRIPTION" "$TOPIC" "$SDPATH" "$MIBPATH"
+./copy_file.sh "$DESCRIPTION" "$TOPIC" "$MIBPATH" "$SDPATH"
 
 
 # Make it writable

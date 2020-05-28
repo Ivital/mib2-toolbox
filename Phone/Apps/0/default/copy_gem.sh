@@ -5,7 +5,7 @@ TOPIC=GEM
 SDPATH=/Custom/Advanced/GEM/GEM.jar
 MIBPATH=/eso/hmi/lsd/jars/GEM.jar
 
-/eso/bin/PhoneCustomer/default/copy_file.sh "$DESCRIPTION" "$TOPIC" "$SDPATH" "$MIBPATH"
+/eso/bin/PhoneCustomer/default/copy_file.sh "$DESCRIPTION" "$TOPIC" "$MIBPATH" "$SDPATH"
 
 echo "Done"
 exit 0

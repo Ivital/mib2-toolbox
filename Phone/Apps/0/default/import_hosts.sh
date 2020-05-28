@@ -5,7 +5,7 @@ TOPIC=Hosts
 SDPATH=/Custom/Advanced/Hosts/hosts.txt
 MIBPATH=/net/mmx/mnt/system/etc/hosts
 
-/eso/bin/PhoneCustomer/default/copy_file.sh "$DESCRIPTION" "$TOPIC" "$SDPATH" "$MIBPATH"
+/eso/bin/PhoneCustomer/default/copy_file.sh "$DESCRIPTION" "$TOPIC" "$MIBPATH" "$SDPATH" 
 
 echo "Done"
 exit 0
