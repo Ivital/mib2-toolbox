@@ -71,14 +71,21 @@ mkdir -p $DUMPPATH/Sounds/Systemsounds/
 mkdir -p $DUMPPATH/Sounds/Ringtones/
 mkdir -p $DUMPPATH/Sounds/TTS-audio/
 mkdir -p $DUMPPATH/Radiostations/
+mkdir -p $DUMPPATH/Gracenote/
+mkdir -p $DUMPPATH/Mapstyles/
 echo Dumping System sounds
 cp /net/rcc/mnt/efs-system/opt/audio/tones/*.* $DUMPPATH/Sounds/Systemsounds/
 echo Dumping Telephone ringtones 
 cp /net/mmx/mnt/app/hb/ringtones/*.* $DUMPPATH/Sounds/Ringtones/
-echo Dump TTS-audio alerts
+echo Dumping TTS-audio alerts
 cp /net/mmx/ifs/tts-audio/*.* $DUMPPATH/Sounds/TTS-audio/
-echo Dump Radio Station DB
+echo Dumping Radio Station DB
 cp /net/mmx/mnt/boardbook/RSDB/VW_STL_DB.sqlite $DUMPPATH/Radiostations/
+echo Dumping Gracenote DB
+cp -R /net/mmx/mnt/gracenotedb/ $DUMPPATH/Gracenote/
+echo Dumping Mapstyles
+cp -R /net/mmx/mnt/app/navigation/resources/app/ $DUMPPATH/Mapstyles/
+
 
 
 # Make readonly again

@@ -3,13 +3,16 @@
 # MIB2 script, part of the MIB High toolbox.
 # Coded by Jille
 # This script will take a description, a source file or folder and a target
-# call script by ./copy_file.sh <description> <topic> <mibpath> <sdpath>
+# call script by ./copy_file.sh <description> <topic> <mibpath> <sdpath> <folder_or_file>
 # for instance /eso/bin/PhoneCustomer/default/copy_file.sh "This script will copy a new FEC container onto your device" "FEC" "/Custom/Advanced/FEC/FecContainer.fec" "/net/rcc/mnt/efs-persist/FEC/FecContainer.fec"
+
+#todo: add option to copy an entire folder recursively
 
 DESCRIPTION=$1  # What this script does. Shows info to the user during execution.
 TOPIC=$2        # Topic, for instance Skinfiles.
 MIBPATH=$3      # path on the MIB that has to be backupped/replaced
 SDPATH=$4       # path on the SD that holds the new file(s)
+TYPE=$5         # "folder" or "file". If it's a folder, the script will recursively backup and copy.
 
 
 #Firmware/unit info:
@@ -55,11 +58,16 @@ then
     echo "$BACKUPFOLDER exists already, no backup needed."
 else 
     echo "Making backup folders on SD-card."
-    mkdir -p $BACKUPFOLDER
+    mkdir -p "$BACKUPFOLDER"
 
     echo "Copying target file(s) to backup folder on SD-card."
     echo "This can take some time. Please wait."
-    cp "$MIBPATH" "$BACKUPFOLDER"
+    if [[ "$TYPE" == "folder" ]]
+    then
+        cp -R "$MIBPATH" "$BACKUPFOLDER"
+    else 
+        cp "$MIBPATH" "$BACKUPFOLDER"
+    fi 
     echo "Backup done. Saved at $BACKUPFOLDER"   
 fi
 
@@ -74,9 +82,14 @@ sleep .1
 echo ""
 echo "Copying modified files from SD folder to MIB."
 echo "This can take some time. Please wait."
-cp "$SDPATH" "$MIBPATH"
 
-sleep .1
+if [[ "$TYPE" == "folder" ]]
+then
+    cp -R "$SDPATH" "$MIBPATH"/..
+else 
+    cp "$SDPATH" "$MIBPATH"
+fi 
+
 
 # Make readonly again
 mount -ur /mnt/app
